@@ -1,6 +1,9 @@
 class I2A extends ConnecTag.classes.Plugin
     @id = "I2A"
 
+    constructor: () ->
+        @initialized = false
+
     track: (settings, instances) ->
         instance = instances[0]    # There should only be one
         @executeCommands(instance.commands, instance.id)
