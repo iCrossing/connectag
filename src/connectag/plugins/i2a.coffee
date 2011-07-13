@@ -7,6 +7,7 @@ class I2A extends ConnecTag.classes.Plugin
         @helpers.getScript(settings.path) if typeof pixel isnt "function"
 
     methods: (() ->
+        m = {}
         properties = [
             'pageAction'
             'price'
@@ -35,12 +36,12 @@ class I2A extends ConnecTag.classes.Plugin
 
         # Build methods
         for property in properties
-            methods[property] = getPropertyHandler(property)
+            m[property] = getPropertyHandler(property)
 
-        methods.pixel_conversion = (pageAction) ->
+        m.pixel_conversion = (pageAction) ->
             window.pixel_conversion(pageAction)
 
-        methods
+        m
     )()
 
 ConnecTag.classes.plugins.I2A = I2A
