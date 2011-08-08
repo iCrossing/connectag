@@ -41,6 +41,8 @@ class ICPixel extends ConnecTag.classes.Plugin
         for property in properties
             m[property] = getPropertyHandler(property)
 
+        m.pixel = -> window.IC.pixel()
+
         m
     )()
 
