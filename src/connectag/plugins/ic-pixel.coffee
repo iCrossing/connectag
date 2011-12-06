@@ -6,7 +6,7 @@ class ICPixel extends ConnecTag.classes.Plugin
 
     track: (settings, instances) ->
         instance = instances[0]
-        protocol = if window.protocol.location is "https:" then "https" else "http"
+        protocol = if window.location.protocol is "https:" then "https" else "http"
         window.IC = {} unless window.IC?
 
         if settings.host?
