@@ -10,7 +10,7 @@ class ICPixel extends ConnecTag.classes.Plugin
         window.IC = {} unless window.IC?
 
         if settings.host?
-            scriptUrl = "#{protocol}://#{settings.host}/#{settings.path}"
+            scriptUrl = "#{protocol}//#{settings.host}/#{settings.path}"
         else
             scriptUrl = settings.path
 
