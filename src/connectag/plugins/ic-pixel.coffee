@@ -1,19 +1,23 @@
 class ICPixel extends ConnecTag.classes.Plugin
     @id = "ICPixel"
-    @url = "pixel.iclive.com/pixel-js/ic-pixel.js"
 
     constructor: () ->
         @initialized = false
 
     track: (settings, instances) ->
         instance = instances[0]
-        protocol = if window.location.protocol is 'https:' then 'https' else 'http'
+        protocol = window.location.protocol
         window.IC = {} unless window.IC?
+
+        if settings.host?
+            scriptUrl = "#{protocol}://#{settings.host}/#{settings.path}"
+        else
+            scriptUrl = settings.path
 
         @executeCommands(instance.commands, instance.id)
 
         if not @initialized
-            @helpers.getScript "#{protocol}://#{ICPixel.url}", () =>
+            @helpers.getScript scriptUrl, () =>
                 @initialized = true
 
     methods: (() ->
