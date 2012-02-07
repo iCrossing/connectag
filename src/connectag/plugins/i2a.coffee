@@ -28,6 +28,10 @@ class I2A extends ConnecTag.classes.Plugin
             'altid'
             'ic_cat'
             'ic_type'
+            'client_id'
+            'domain_id'
+            'campaign_id'
+            
         ]
 
         getPropertyHandler = (property) ->
